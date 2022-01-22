@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
     println("Old Num is $numbers")
     val newNum = answerKey(numbers) {number->number/10}
     println("New num after func $newNum")
+    println("The old also changed rigt? $numbers")
 }
 
 /**

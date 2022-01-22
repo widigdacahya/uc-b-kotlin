@@ -9,4 +9,7 @@
 fun main(args: Array<String>) {
     val myLambda = {name: String -> println("Hello $name") }
     println(myLambda) //it print out (kotlin.String) -> kotlin.Unit
+
+    val anotherLambda = {nama: String -> println("Halo $nama")}
+    println(anotherLambda)
 }
