@@ -48,11 +48,18 @@ fun main(args: Array<String>) {
             if (!skipRound) {
                 var playerWon = checkWinner(true)
 
+                //to test when check tie, the computer not yet implment any draw(code not written yet)
+                //var playerWon = false
+
                 if(playerWon) {
                     println("\uD83C\uDF8A \uD83C\uDF8A \uD83C\uDF8A Congratualion, You Won \uD83C\uDF8A \uD83C\uDF8A \uD83C\uDF8A")
                     continueGame = false
                 }
-
+                val boardFullCondition = checkBoardFull()
+                if(!playerWon && boardFullCondition) {
+                    println("Tie . . .")
+                    continueGame = false
+                }
             }
 
         }catch (e: Exception) {
@@ -115,4 +122,17 @@ fun printBoard() {
         println("|")
         println("----------------")
     }
+}
+
+fun checkBoardFull() : Boolean {
+    var boardFull = true
+    for(i in 0..2) {
+        for(j in 0..2) {
+            if (board[i][j] == "") {
+                boardFull = false
+                break
+            }
+        }
+    }
+    return boardFull
 }
