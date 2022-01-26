@@ -1,4 +1,5 @@
 import java.lang.Exception
+import kotlin.random.Random
 
 var board = arrayListOf<ArrayList<String>>()
 
@@ -59,6 +60,17 @@ fun main(args: Array<String>) {
                 if(!playerWon && boardFullCondition) {
                     println("Tie . . .")
                     continueGame = false
+                }
+
+                if(continueGame) {
+                    compMovePlace()
+                    printBoard()
+                    val computerWon = checkWinner(false)
+
+                    if(computerWon) {
+                        println("Computer Won")
+                        continueGame = false
+                    }
                 }
             }
 
@@ -135,4 +147,21 @@ fun checkBoardFull() : Boolean {
         }
     }
     return boardFull
+}
+
+/*
+* Computer Move
+* SImply random postion on empt
+* */
+fun compMovePlace() {
+    var i = 0
+    var j = 0
+
+    do {
+        i = Random.nextInt(3)
+        j = Random.nextInt(3)
+    } while (board[i][j] != "")
+
+    board[i][j] = "O"
+
 }
