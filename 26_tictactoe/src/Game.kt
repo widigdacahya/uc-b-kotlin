@@ -29,14 +29,30 @@ fun main(args: Array<String>) {
             x= positions[0].trim().toInt()
             y = positions[1].trim().toInt()
 
+            /*
+            * Flag to check win oe not
+            * */
+            var skipRound = false
+
             if(board[x-1][y-1] != "") {
                 println("Position already taken, try other")
+                skipRound = true
             } else {
                 /**
                  * User play as x
                  * */
                 board[x-1][y-1] = "X"
                 printBoard()
+            }
+
+            if (!skipRound) {
+                var playerWon = checkWinner(true)
+
+                if(playerWon) {
+                    println("\uD83C\uDF8A \uD83C\uDF8A \uD83C\uDF8A Congratualion, You Won \uD83C\uDF8A \uD83C\uDF8A \uD83C\uDF8A")
+                    continueGame = false
+                }
+
             }
 
         }catch (e: Exception) {
@@ -46,6 +62,43 @@ fun main(args: Array<String>) {
     }while (continueGame)
 
 
+}
+
+/**
+ * If we pass TRUE to argument check whether player is won
+ * If argument passed is False check the Computer won
+ * */
+fun checkWinner(player: Boolean): Boolean {
+
+    var won = false
+    val checkSymbol = if (player) "X" else "O"
+
+    //check horizontal and vertical psoition
+    for(i in 0..2) {
+
+        //Horixontal Position
+        if(board[i][0] == checkSymbol && board[i][1] == checkSymbol && board[i][2] == checkSymbol) {
+            won = true
+            break
+        }
+
+        //Vertical Position
+        if(board[0][i] == checkSymbol && board[1][i] == checkSymbol && board[2][i] == checkSymbol) {
+            won = true
+            break
+        }
+    }
+
+    //Diagonal COnditon
+    if(board[0][0] == checkSymbol && board[1][1] == checkSymbol && board[2][2] == checkSymbol) {
+        won = true
+    }
+
+    if (board[2][0] == checkSymbol && board[1][1] == checkSymbol && board[0][2] == checkSymbol) {
+        won = true
+    }
+
+    return won
 }
 
 fun printBoard() {
