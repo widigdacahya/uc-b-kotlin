@@ -1,6 +1,6 @@
 package com.organization.main
 
-//-import com.organization.coolfeature.coolFeatureBuilt
+import com.organization.coolfeature.coolFeatureBuilt
 
 /**
  *  Package is a way to group related code
@@ -25,5 +25,5 @@ package com.organization.main
 
 fun main(args: Array<String>) {
     //println("main")
-    //-coolFeatureBuilt()
+    coolFeatureBuilt()
 }
