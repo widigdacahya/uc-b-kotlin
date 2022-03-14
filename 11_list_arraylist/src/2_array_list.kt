@@ -48,5 +48,37 @@ fun main(args: Array<String>) {
 
     //remove an element from a certain position
 
+    println()
+    println()
+    var someone = ArrayList<String>()
+    someone.add("Padmasari")
+    someone.add("Prameswari")
+    someone.add("Wiu Wiu")
+    println(someone)
+    println("If after for")
+    for (element in someone) {
+        println(element)
+    }
+
+    val pips1 = Pips("Cahya","Widigda")
+    val pips2 = Pips("Prameswar","Padmasari")
+    val pips3 = Pips("Trilili", "Tralalal")
+    var myArrPips = ArrayList<Pips>()
+    myArrPips.add(pips1)
+    myArrPips.add(pips2)
+    myArrPips.add(pips3)
+    println()
+    println()
+    println("Pips Here")
+    //println(myArrPips)
+    for(eachOne in myArrPips) {
+        println(eachOne.name)
+    }
+
 
 }
+
+data class Pips (
+    val name: String,
+    val surename: String
+)
