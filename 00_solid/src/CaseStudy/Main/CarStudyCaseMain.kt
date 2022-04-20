@@ -29,5 +29,5 @@ fun main(args: Array<String>) {
     electricCar.refill(electrons)
     electricCar.accelerate()
     electricCar.brake()
-    
+
 }
